@@ -1,0 +1,69 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace demo3
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void ẽitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+
+        }
+
+        private void openToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofile = new OpenFileDialog();
+          
+            ofile.Filter = "Image Files|*.jpg;*.jpeg;*.png;*.bmp;*.gif";
+            if (ofile.ShowDialog() == DialogResult.OK)
+            {
+                Form2 frm = new Form2(ofile.FileName);
+                frm.MdiParent = this;
+                frm.Show();
+            }
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void windownsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void windowsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cascadeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.Cascade);
+        }
+
+        private void tileHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.TileHorizontal);
+        }
+
+        private void tileVerticalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.TileVertical);
+        }
+    }
+}
