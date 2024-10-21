@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace _1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            bool tiepTuc = true; 
+
+            while (tiepTuc)
+            {
+                try
+                {
+                    Console.Write("Nhap so luong san pham: ");
+                    int soLuong = int.Parse(Console.ReadLine());
+                    Console.Write("Nhap gia 1 san pham: ");
+                    decimal giaSanPham = decimal.Parse(Console.ReadLine());
+                    decimal tongGiaTri = soLuong * giaSanPham;
+                    Console.WriteLine("Tong gia tri don hang la: " + tongGiaTri);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Du lieu khong hop le");
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("da xay ra loi: " + ex.Message);
+                }
+
+                // Hỏi người dùng có muốn tiếp tục hay không
+                Console.WriteLine("Nhap tiep? (y/n): ");
+                string luaChon = Console.ReadLine().ToLower();
+
+                // Kiểm tra sự lựa chọn của người dùng
+                if (luaChon != "y")
+                {
+                    tiepTuc = false;
+                }
+            }
+
+            Console.WriteLine("Nhan phim bat ky de thoat");
+            Console.ReadKey();
+        }
+    }
+}
